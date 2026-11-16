@@ -18,7 +18,7 @@
       </td>
       <td width="50%" align="center" valign="top" bgcolor="#030712">
         <a href="https://calebluh.com/audit?source=github">
-          <img src="./assets/top-skills.svg" width="100%" alt="Top Skills Mastered" />
+          <img src="./assets/hud/top-skills-card.png" width="100%" alt="Top Skills Mastered" />
         </a>
       </td>
     </tr>
@@ -30,7 +30,7 @@
 <!-- ==================== ROW 3: ALL-TIME TICKETS CLOSED ==================== -->
 <div align="center">
   <a href="https://github.com/calebluh">
-    <img src="./assets/tickets-closed-banner.svg" width="100%" alt="All-Time IT Tickets Closed" />
+    <img src="./assets/hud/tickets-closed-banner.png" width="100%" alt="All-Time IT Tickets Closed" />
   </a>
 </div>
 
