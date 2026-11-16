@@ -78,14 +78,14 @@
       <td width="50%" align="center" valign="top" bgcolor="#0D0714">
         <b style="color: #C084FC; font-family: monospace;">DIMENSION PORTAL // VIBE HASH</b><br/><br/>
         <a href="https://github.com/vibehash">
-          <img src="./assets/nether-portal.jpg" width="85%" style="border-radius: 8px; border: 2px solid #7E22CE;" alt="Portal Alpha" />
+          <img src="./assets/nether-portal.gif" width="85%" style="border-radius: 8px; border: 2px solid #7E22CE;" alt="Portal Alpha" />
         </a>
       </td>
       <!-- Right Portal -> Luh Labs LLC -->
       <td width="50%" align="center" valign="top" bgcolor="#071318">
         <b style="color: #38BDF8; font-family: monospace;">DIMENSION PORTAL // LUH LABS LLC</b><br/><br/>
         <a href="https://github.com/luhlabs">
-          <img src="./assets/nether-portal.jpg" width="85%" style="border-radius: 8px; border: 2px solid #0284C7;" alt="Portal Beta" />
+          <img src="./assets/nether-portal.gif" width="85%" style="border-radius: 8px; border: 2px solid #0284C7;" alt="Portal Beta" />
         </a>
       </td>
     </tr>
