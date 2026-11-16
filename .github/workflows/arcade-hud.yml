@@ -1,0 +1,31 @@
+name: Sync Arcade GitHub HUD
+on:
+  schedule:
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths-ignore:
+      - "assets/hud/**"
+
+jobs:
+  build-hud:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Generate Arcade HUD SVGs & Update README Links
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/build_arcade_hud.py
+      - name: Commit updated HUD assets and README
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add assets/hud/ README.md
+          git diff --quiet && git diff --staged --quiet || git commit -m "chore: sync arcade hud and repo vending slots"
+          git push
