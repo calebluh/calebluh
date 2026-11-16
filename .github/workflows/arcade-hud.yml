@@ -21,7 +21,7 @@ jobs:
       - name: Generate Arcade HUD SVGs & Update README Links
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python scripts/build_arcade_hud.py
+        run: python scripts/arcade_hud.py
       - name: Commit updated HUD assets and README
         run: |
           git config user.name "github-actions[bot]"
