@@ -45,4 +45,49 @@
         <table border="1" bordercolor="#3F3F46" cellspacing="0" cellpadding="8" style="background: #09090B; border-radius: 6px;">
           <tr>
             <td align="center" width="48" height="48" style="color: #71717A; font-family: monospace;">🪵<br/><span style="font-size:9px">Wood</span></td>
-            <td align="center" width="48" height="48" style="color:
+            <td align="center" width="48" height="48" style="color: #71717A; font-family: monospace;">🪵<br/><span style="font-size:9px">Wood</span></td>
+            <td align="center" width="48" height="48" style="color: #27272A;"></td>
+          </tr>
+          <tr>
+            <td align="center" width="48" height="48" style="color: #27272A;"></td>
+            <td align="center" width="48" height="48" style="color: #38BDF8; font-family: monospace;">⛏️<br/><span style="font-size:9px">Stick</span></td>
+            <td align="center" width="48" height="48" style="color: #27272A;"></td>
+          </tr>
+          <tr>
+            <td align="center" width="48" height="48" style="color: #27272A;"></td>
+            <td align="center" width="48" height="48" style="color: #38BDF8; font-family: monospace;">⛏️<br/><span style="font-size:9px">Stick</span></td>
+            <td align="center" width="48" height="48" style="color: #27272A;"></td>
+          </tr>
+        </table>
+        <br/>
+        <a href="https://github.com/calebluh/calebluh/issues/new?title=CRAFT:+[Recipe+Name]&body=Ingredients:+">
+          <img src="https://img.shields.io/badge/💬_OPEN_ISSUE_TO_CRAFT_ITEM-F59E0B?style=for-the-badge&logo=github&logoColor=black" alt="Craft Item via Issue" />
+        </a>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<br/>
+
+<!-- ==================== ROW 5: PORTALS (USING YOUR UPLOADED GIF) ==================== -->
+<div align="center">
+  <table width="100%" border="0" cellspacing="0" cellpadding="8">
+    <tr>
+      <!-- Left Portal -> VibeHash -->
+      <td width="50%" align="center" valign="top" bgcolor="#0D0714">
+        <b style="color: #C084FC; font-family: monospace;">DIMENSION PORTAL // VIBE HASH</b><br/><br/>
+        <a href="https://github.com/vibehash">
+          <img src="./assets/nether-portal.jpg" width="85%" style="border-radius: 8px; border: 2px solid #7E22CE;" alt="Portal Alpha" />
+        </a>
+      </td>
+      <!-- Right Portal -> Luh Labs LLC -->
+      <td width="50%" align="center" valign="top" bgcolor="#071318">
+        <b style="color: #38BDF8; font-family: monospace;">DIMENSION PORTAL // LUH LABS LLC</b><br/><br/>
+        <a href="https://github.com/luhlabs">
+          <img src="./assets/nether-portal.jpg" width="85%" style="border-radius: 8px; border: 2px solid #0284C7;" alt="Portal Beta" />
+        </a>
+      </td>
+    </tr>
+  </table>
+</div>
