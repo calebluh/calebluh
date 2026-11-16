@@ -1,4 +1,4 @@
-name: Sync Arcade GitHub HUD
+name: Sync Arcade GitHub HUD v2
 on:
   schedule:
     - cron: "0 */6 * * *"
