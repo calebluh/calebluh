@@ -44,19 +44,29 @@
         <!-- 3x3 Crafting Grid UI -->
         <table border="1" bordercolor="#3F3F46" cellspacing="0" cellpadding="8" style="background: #09090B; border-radius: 6px;">
           <tr>
-            <td align="center" width="48" height="48" style="color: #71717A; font-family: monospace;">🪵<br/><span style="font-size:9px">Wood</span></td>
-            <td align="center" width="48" height="48" style="color: #71717A; font-family: monospace;">🪵<br/><span style="font-size:9px">Wood</span></td>
-            <td align="center" width="48" height="48" style="color: #27272A;"></td>
+            <td align="center" width="52" height="52">
+              <img src="./assets/iron-ingot.webp" width="36" height="36" alt="Iron Ingot" />
+            </td>
+            <td align="center" width="52" height="52">
+              <img src="./assets/iron-ingot.webp" width="36" height="36" alt="Iron Ingot" />
+            </td>
+            <td align="center" width="52" height="52">
+              <img src="./assets/iron-ingot.webp" width="36" height="36" alt="Iron Ingot" />
+            </td>
           </tr>
           <tr>
-            <td align="center" width="48" height="48" style="color: #27272A;"></td>
-            <td align="center" width="48" height="48" style="color: #38BDF8; font-family: monospace;">⛏️<br/><span style="font-size:9px">Stick</span></td>
-            <td align="center" width="48" height="48" style="color: #27272A;"></td>
+            <td align="center" width="52" height="52"></td>
+            <td align="center" width="52" height="52">
+              <img src="./assets/stick.webp" width="36" height="36" alt="Stick" />
+            </td>
+            <td align="center" width="52" height="52"></td>
           </tr>
           <tr>
-            <td align="center" width="48" height="48" style="color: #27272A;"></td>
-            <td align="center" width="48" height="48" style="color: #38BDF8; font-family: monospace;">⛏️<br/><span style="font-size:9px">Stick</span></td>
-            <td align="center" width="48" height="48" style="color: #27272A;"></td>
+            <td align="center" width="52" height="52"></td>
+            <td align="center" width="52" height="52">
+              <img src="./assets/stick.webp" width="36" height="36" alt="Stick" />
+            </td>
+            <td align="center" width="52" height="52"></td>
           </tr>
         </table>
         <br/>
