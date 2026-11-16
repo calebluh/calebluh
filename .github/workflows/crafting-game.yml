@@ -1,0 +1,17 @@
+name: Crafting Table Game Engine
+on:
+  issues:
+    types: [opened, edited]
+
+jobs:
+  craft:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Process Crafting Recipe
+        env:
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          ISSUE_USER: ${{ github.event.issue.user.login }}
+        run: |
+          echo "Processing craft command from @$ISSUE_USER: $ISSUE_TITLE"
+          # Here you can add python logic to parse recipes and comment or update profile state!
