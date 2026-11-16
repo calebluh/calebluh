@@ -1,0 +1,19 @@
+<svg width="104" height="74" viewBox="0 0 104 74" xmlns="http://www.w3.org/2000/svg">
+  <!-- Dark Interior Shelf -->
+  <rect width="104" height="74" fill="#0B0F17" stroke="#27272A" stroke-width="1.5"/>
+  <!-- Metal Spiral Coil Behind Item -->
+  <circle cx="52" cy="34" r="20" fill="none" stroke="#71717A" stroke-width="2.2" stroke-dasharray="6 4">
+    <animateTransform attributeName="transform" type="rotate" from="0 52 34" to="360 52 34" dur="11s" repeatCount="indefinite"/>
+  </circle>
+  <!-- Energy Can / Repo Capsule -->
+  <rect x="34" y="10" width="36" height="44" rx="7" fill="#15803D" stroke="#22C55E" stroke-width="1.8"/>
+  <rect x="37" y="8" width="30" height="4" rx="2" fill="#D4D4D8"/>
+  <rect x="37" y="52" width="30" height="3" rx="1.5" fill="#A1A1AA"/>
+  <!-- Specular Glass Highlight -->
+  <rect x="39" y="14" width="5" height="34" rx="2.5" fill="#FFFFFF" opacity="0.28"/>
+  <!-- Shelf Price Tag Rail -->
+  <rect x="3" y="56" width="98" height="15" rx="2" fill="#18181B" stroke="#52525B" stroke-width="1"/>
+  <rect x="5" y="58" width="18" height="11" rx="1.5" fill="#22C55E"/>
+  <text x="14" y="66.5" text-anchor="middle" fill="#09090B" font-family="monospace" font-size="8" font-weight="900">A3</text>
+  <text x="62" y="66.5" text-anchor="middle" fill="#F4F4F5" font-family="monospace" font-size="8.5" font-weight="700">codebase-dio</text>
+</svg>
