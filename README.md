@@ -1,103 +1,23 @@
-<!-- ==================== ROW 1: SPLIT-FACE HERO BANNER ==================== -->
 <div align="center">
-  <img src="./assets/split-face-banner.gif" width="100%" alt="Caleb Luh Split Face" />
-</div>
 
-<br/>
+<a href="https://www.calebluh.com/professional/content#resume"><img src="./assets/hud/header.svg" width="100%" alt="Caleb Luh: Network Administrator at J.F. Ahern. CompTIA Network+, Security+, SecAI+." /></a>
 
-<!-- ==================== ROW 2: ROCKET DISTANCE & TOP SKILLS ==================== -->
-<div align="center">
-  <table width="100%" border="0" cellspacing="0" cellpadding="8">
-    <tr>
-      <!-- Left: Orbital Rocket Commit Distance Chart -->
-      <td width="50%" align="center" valign="top" bgcolor="#030712">
-        <a href="https://github.com/calebluh?tab=repositories">
-          <img src="./assets/hud/rocket-commit-tracker.svg" width="100%" alt="Orbital Commit Tracker" />
-        </a>
-      </td>
-      <!-- Right: Top Skills Mastered (Code & Resume) -->
-      <td width="50%" align="center" valign="top" bgcolor="#030712">
-        <img src="./assets/hud/top-skills-card.png" width="100%" alt="Top Skills Mastered" />
-      </td>
-    </tr>
-  </table>
-</div>
+<a href="https://github.com/calebluh?tab=repositories"><img src="./assets/hud/showcase.svg" width="66%" alt="Project showcase: VibeHash, EvoHash, StatLab, Intune kit, Luh Calm, calebluh.com, Luh Labs. 2,140+ IT tickets closed." /></a> <a href="https://www.credly.com/users/caleb-luh.2a05c6ae/badges"><img src="./assets/hud/sidebar.svg" width="33%" alt="Verified on Credly: CompTIA Network+, Security+, SecAI+" /></a>
 
-<br/>
+<img src="./assets/hud/activity.svg" width="100%" alt="Recent activity and the Earth to Mars commit run" />
 
-<!-- ==================== ROW 3: ALL-TIME TICKETS CLOSED ==================== -->
-<div align="center">
-  <img src="./assets/hud/tickets-closed-banner.png" width="100%" alt="All-Time Tickets Closed" />
-</div>
+<a href="https://vibehash.org"><img src="./assets/hud/portal-vibehash.svg" width="49.4%" alt="Portal to vibehash.org" /></a> <a href="https://luhlabs.com"><img src="./assets/hud/portal-luhlabs.svg" width="49.4%" alt="Portal to luhlabs.com" /></a>
 
-<br/>
+<a href="https://github.com/calebluh/calebluh/issues/new?title=COMMENT:%20&body=Write%20your%20message%20after%20COMMENT:%20in%20the%20title%20and%20submit.%20Keep%20it%20short%20(70%20characters)."><img src="./assets/hud/guestbook.svg" width="100%" alt="Guestbook: open an issue titled COMMENT: to sign it" /></a>
 
-<!-- ==================== ROW 4: THE README CRAFTING TABLE GAME ==================== -->
-<div align="center">
-  <table width="100%" border="0" cellspacing="0" cellpadding="12" style="background: #18181B; border: 2px solid #52525B; border-radius: 10px;">
-    <tr>
-      <td align="center">
-        <h3 style="color: #FBBF24; font-family: monospace; margin: 0;">🕹️ INTERACTIVE README CRAFTING TABLE</h3>
-        <p style="color: #A1A1AA; font-family: monospace; font-size: 12px; margin: 6px 0 14px 0;">
-          Combine items via GitHub Issues to craft secret project blueprints &amp; unlock hidden profile rooms!
-        </p>
-        <!-- 3x3 Crafting Grid UI -->
-        <table border="1" bordercolor="#3F3F46" cellspacing="0" cellpadding="8" style="background: #09090B; border-radius: 6px;">
-          <tr>
-            <td align="center" width="52" height="52">
-              <img src="./assets/iron-ingot.webp" width="36" height="36" alt="Iron Ingot" />
-            </td>
-            <td align="center" width="52" height="52">
-              <img src="./assets/iron-ingot.webp" width="36" height="36" alt="Iron Ingot" />
-            </td>
-            <td align="center" width="52" height="52">
-              <img src="./assets/iron-ingot.webp" width="36" height="36" alt="Iron Ingot" />
-            </td>
-          </tr>
-          <tr>
-            <td align="center" width="52" height="52"></td>
-            <td align="center" width="52" height="52">
-              <img src="./assets/stick.webp" width="36" height="36" alt="Stick" />
-            </td>
-            <td align="center" width="52" height="52"></td>
-          </tr>
-          <tr>
-            <td align="center" width="52" height="52"></td>
-            <td align="center" width="52" height="52">
-              <img src="./assets/stick.webp" width="36" height="36" alt="Stick" />
-            </td>
-            <td align="center" width="52" height="52"></td>
-          </tr>
-        </table>
-        <br/>
-        <a href="https://github.com/calebluh/calebluh/issues/new?title=CRAFT:+[Recipe+Name]&body=Ingredients:+">
-          <img src="https://img.shields.io/badge/💬_OPEN_ISSUE_TO_CRAFT_ITEM-F59E0B?style=for-the-badge&logo=github&logoColor=black" alt="Craft Item via Issue" />
-        </a>
-      </td>
-    </tr>
-  </table>
-</div>
+<img src="./assets/hud/crafting.svg" width="100%" alt="Crafting table instructions" />
 
-<br/>
+<!--START_CRAFTING-->
+<p align="center">
+<a href="https://github.com/calebluh/calebluh/issues/new?title=CRAFT%3A%20iron_ingot%20-%3E%201&body=Just%20submit%20this%20issue%2C%20the%20title%20does%20the%20work.%0A%0AFormat%3A%20%60CRAFT%3A%20%3Citem%3E%20-%3E%20%3Cslot%201-9%3E%60%20%28slots%20go%20left%20to%20right%2C%20top%20to%20bottom%29.%0AItems%3A%20%60iron_ingot%60%2C%20%60stick%60%2C%20%60gold_ingot%60%2C%20%60diamond%60%2C%20%60redstone%60%2C%20%60planks%60%2C%20%60cobblestone%60%2C%20%60string%60%2C%20or%20%60air%60%20to%20clear%20a%20slot.%0A"><img src="./assets/items/empty.svg" width="64" height="64" alt="Empty slot 1"/></a><a href="https://github.com/calebluh/calebluh/issues/new?title=CRAFT%3A%20iron_ingot%20-%3E%202&body=Just%20submit%20this%20issue%2C%20the%20title%20does%20the%20work.%0A%0AFormat%3A%20%60CRAFT%3A%20%3Citem%3E%20-%3E%20%3Cslot%201-9%3E%60%20%28slots%20go%20left%20to%20right%2C%20top%20to%20bottom%29.%0AItems%3A%20%60iron_ingot%60%2C%20%60stick%60%2C%20%60gold_ingot%60%2C%20%60diamond%60%2C%20%60redstone%60%2C%20%60planks%60%2C%20%60cobblestone%60%2C%20%60string%60%2C%20or%20%60air%60%20to%20clear%20a%20slot.%0A"><img src="./assets/items/empty.svg" width="64" height="64" alt="Empty slot 2"/></a><a href="https://github.com/calebluh/calebluh/issues/new?title=CRAFT%3A%20iron_ingot%20-%3E%203&body=Just%20submit%20this%20issue%2C%20the%20title%20does%20the%20work.%0A%0AFormat%3A%20%60CRAFT%3A%20%3Citem%3E%20-%3E%20%3Cslot%201-9%3E%60%20%28slots%20go%20left%20to%20right%2C%20top%20to%20bottom%29.%0AItems%3A%20%60iron_ingot%60%2C%20%60stick%60%2C%20%60gold_ingot%60%2C%20%60diamond%60%2C%20%60redstone%60%2C%20%60planks%60%2C%20%60cobblestone%60%2C%20%60string%60%2C%20or%20%60air%60%20to%20clear%20a%20slot.%0A"><img src="./assets/items/empty.svg" width="64" height="64" alt="Empty slot 3"/></a><br/>
+<a href="https://github.com/calebluh/calebluh/issues/new?title=CRAFT%3A%20iron_ingot%20-%3E%204&body=Just%20submit%20this%20issue%2C%20the%20title%20does%20the%20work.%0A%0AFormat%3A%20%60CRAFT%3A%20%3Citem%3E%20-%3E%20%3Cslot%201-9%3E%60%20%28slots%20go%20left%20to%20right%2C%20top%20to%20bottom%29.%0AItems%3A%20%60iron_ingot%60%2C%20%60stick%60%2C%20%60gold_ingot%60%2C%20%60diamond%60%2C%20%60redstone%60%2C%20%60planks%60%2C%20%60cobblestone%60%2C%20%60string%60%2C%20or%20%60air%60%20to%20clear%20a%20slot.%0A"><img src="./assets/items/empty.svg" width="64" height="64" alt="Empty slot 4"/></a><a href="https://github.com/calebluh/calebluh/issues/new?title=CRAFT%3A%20iron_ingot%20-%3E%205&body=Just%20submit%20this%20issue%2C%20the%20title%20does%20the%20work.%0A%0AFormat%3A%20%60CRAFT%3A%20%3Citem%3E%20-%3E%20%3Cslot%201-9%3E%60%20%28slots%20go%20left%20to%20right%2C%20top%20to%20bottom%29.%0AItems%3A%20%60iron_ingot%60%2C%20%60stick%60%2C%20%60gold_ingot%60%2C%20%60diamond%60%2C%20%60redstone%60%2C%20%60planks%60%2C%20%60cobblestone%60%2C%20%60string%60%2C%20or%20%60air%60%20to%20clear%20a%20slot.%0A"><img src="./assets/items/empty.svg" width="64" height="64" alt="Empty slot 5"/></a><a href="https://github.com/calebluh/calebluh/issues/new?title=CRAFT%3A%20iron_ingot%20-%3E%206&body=Just%20submit%20this%20issue%2C%20the%20title%20does%20the%20work.%0A%0AFormat%3A%20%60CRAFT%3A%20%3Citem%3E%20-%3E%20%3Cslot%201-9%3E%60%20%28slots%20go%20left%20to%20right%2C%20top%20to%20bottom%29.%0AItems%3A%20%60iron_ingot%60%2C%20%60stick%60%2C%20%60gold_ingot%60%2C%20%60diamond%60%2C%20%60redstone%60%2C%20%60planks%60%2C%20%60cobblestone%60%2C%20%60string%60%2C%20or%20%60air%60%20to%20clear%20a%20slot.%0A"><img src="./assets/items/empty.svg" width="64" height="64" alt="Empty slot 6"/></a><br/>
+<a href="https://github.com/calebluh/calebluh/issues/new?title=CRAFT%3A%20iron_ingot%20-%3E%207&body=Just%20submit%20this%20issue%2C%20the%20title%20does%20the%20work.%0A%0AFormat%3A%20%60CRAFT%3A%20%3Citem%3E%20-%3E%20%3Cslot%201-9%3E%60%20%28slots%20go%20left%20to%20right%2C%20top%20to%20bottom%29.%0AItems%3A%20%60iron_ingot%60%2C%20%60stick%60%2C%20%60gold_ingot%60%2C%20%60diamond%60%2C%20%60redstone%60%2C%20%60planks%60%2C%20%60cobblestone%60%2C%20%60string%60%2C%20or%20%60air%60%20to%20clear%20a%20slot.%0A"><img src="./assets/items/empty.svg" width="64" height="64" alt="Empty slot 7"/></a><a href="https://github.com/calebluh/calebluh/issues/new?title=CRAFT%3A%20iron_ingot%20-%3E%208&body=Just%20submit%20this%20issue%2C%20the%20title%20does%20the%20work.%0A%0AFormat%3A%20%60CRAFT%3A%20%3Citem%3E%20-%3E%20%3Cslot%201-9%3E%60%20%28slots%20go%20left%20to%20right%2C%20top%20to%20bottom%29.%0AItems%3A%20%60iron_ingot%60%2C%20%60stick%60%2C%20%60gold_ingot%60%2C%20%60diamond%60%2C%20%60redstone%60%2C%20%60planks%60%2C%20%60cobblestone%60%2C%20%60string%60%2C%20or%20%60air%60%20to%20clear%20a%20slot.%0A"><img src="./assets/items/empty.svg" width="64" height="64" alt="Empty slot 8"/></a><a href="https://github.com/calebluh/calebluh/issues/new?title=CRAFT%3A%20iron_ingot%20-%3E%209&body=Just%20submit%20this%20issue%2C%20the%20title%20does%20the%20work.%0A%0AFormat%3A%20%60CRAFT%3A%20%3Citem%3E%20-%3E%20%3Cslot%201-9%3E%60%20%28slots%20go%20left%20to%20right%2C%20top%20to%20bottom%29.%0AItems%3A%20%60iron_ingot%60%2C%20%60stick%60%2C%20%60gold_ingot%60%2C%20%60diamond%60%2C%20%60redstone%60%2C%20%60planks%60%2C%20%60cobblestone%60%2C%20%60string%60%2C%20or%20%60air%60%20to%20clear%20a%20slot.%0A"><img src="./assets/items/empty.svg" width="64" height="64" alt="Empty slot 9"/></a>
+</p>
+<!--END_CRAFTING-->
 
-<!-- ==================== ROW 5: PORTALS (USING YOUR UPLOADED GIF) ==================== -->
-<div align="center">
-  <table width="100%" border="0" cellspacing="0" cellpadding="8">
-    <tr>
-      <!-- Left Portal -> VibeHash -->
-      <td width="50%" align="center" valign="top" bgcolor="#0D0714">
-        <b style="color: #C084FC; font-family: monospace;">PORTAL TO VIBE HASH</b><br/><br/>
-        <a href="https://vibehash.org">
-          <img src="./assets/nether-portal.gif" width="85%" style="border-radius: 8px; border: 2px solid #7E22CE;" alt="Portal Alpha" />
-        </a>
-      </td>
-      <!-- Right Portal -> Luh Labs LLC -->
-      <td width="50%" align="center" valign="top" bgcolor="#071318">
-        <b style="color: #38BDF8; font-family: monospace;">PORTAL TO LUH LABS LLC</b><br/><br/>
-        <a href="https://luhlabs.com">
-          <img src="./assets/nether-portal.gif" width="85%" style="border-radius: 8px; border: 2px solid #0284C7;" alt="Portal Beta" />
-        </a>
-      </td>
-    </tr>
-  </table>
 </div>
