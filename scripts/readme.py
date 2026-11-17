@@ -59,13 +59,22 @@ PROFILE = {
     "tagline": "Schmaleb · Network Administrator @ J.F. Ahern",
     "bio": ["roses are red", "tickets are closed"],
     "building": ("Currently Building", "VibeHash multi-node testnet"),
-    "featured_cert": ("SEC+", "CompTIA Security+", "#7F1D1D", "#F59E0B", "#FDE68A"),
+    # Official Credly badge art, downloaded from each badge's Open Badges record
+    "featured_cert": ("assets/certs/security-plus.png", "CompTIA Security+"),
     "certs": [
-        ("NET+", "#0C4A6E", "#38BDF8", "#E0F2FE"),
-        ("SEC+", "#7F1D1D", "#F59E0B", "#FDE68A"),
-        ("SECAI+", "#3B0764", "#C084FC", "#F3E8FF"),
+        ("assets/certs/network-plus.png", "CompTIA Network+"),
+        ("assets/certs/security-plus.png", "CompTIA Security+"),
+        ("assets/certs/secai-plus.png", "CompTIA SecAI+"),
     ],
 }
+CREDLY_PROFILE = "https://www.credly.com/users/caleb-luh.2a05c6ae/badges"
+
+
+def badge(path, x, y, size):
+    """Embed an official badge PNG at 2x for crisp edges."""
+    im = Image.open(p(path)).convert("RGBA").resize((size * 2, size * 2), Image.LANCZOS)
+    href = data_uri(im, "PNG")
+    return f'<image x="{x}" y="{y}" width="{size}" height="{size}" href="{href}" xlink:href="{href}"/>'
 
 # Showcase tiles: (label, caption, border, fill, text)
 SHOWCASE = [
@@ -256,17 +265,6 @@ def t(x, y, s, size=15, fill="#FFFFFF", anchor="start", weight="400", font=SANS,
     )
 
 
-def hexbadge(cx, cy, label, fill, stroke, ink, r=26, size=11):
-    pts = " ".join(
-        f"{cx + r * math.cos(math.radians(a)):.1f},{cy + r * math.sin(math.radians(a)):.1f}"
-        for a in (-90, -30, 30, 90, 150, 210)
-    )
-    return (
-        f'<polygon points="{pts}" fill="{fill}" stroke="{stroke}" stroke-width="2.5"/>'
-        + t(cx, cy + 4, label, size, ink, "middle", "800", MONO)
-    )
-
-
 def bar(x, y, w, frac, color="#1A6FBF"):
     frac = max(0.0, min(1.0, frac))
     return (
@@ -326,7 +324,7 @@ def render_header(stats, tickets):
         + t(710, 65, level, 19 if level < 100 else 15, "#FFFFFF", "middle")
         + t(742, 64, f"{xp:,} XP", 12, "#D1D5DB", font=MONO)
         + '<rect x="598" y="92" width="232" height="70" fill="#000" opacity=".55"/>'
-        + hexbadge(634, 127, fc[0], fc[2], fc[3], fc[4], r=24)
+        + badge(fc[0], 604, 98, 58)
         + t(670, 122, fc[1], 15, "#FFFFFF", weight="600")
         + t(670, 144, "Featured certification", 13, "#B8C4CC")
         + '<rect x="598" y="172" width="128" height="30" fill="#000" opacity=".72"/>'
@@ -367,10 +365,7 @@ def render_showcase(tickets):
 
 def render_sidebar(stats):
     certs = PROFILE["certs"]
-    badges = "".join(
-        hexbadge(44 + i * 60, 140, c[0], c[1], c[2], c[3], size=10 if len(c[0]) < 5 else 9)
-        for i, c in enumerate(certs)
-    )
+    badges = "".join(badge(c[0], 14 + i * 84, 106, 70) for i, c in enumerate(certs))
     head, sub = PROFILE["building"]
     body = (
         t(16, 36, head, 22, "#57CBDE")

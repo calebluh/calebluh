@@ -2,7 +2,7 @@
 
 <a href="https://www.calebluh.com/professional/content#resume"><img src="./assets/hud/header.svg" width="100%" alt="Caleb Luh: Network Administrator at J.F. Ahern. CompTIA Network+, Security+, SecAI+." /></a>
 
-<a href="https://github.com/calebluh?tab=repositories"><img src="./assets/hud/showcase.svg" width="66%" alt="Project showcase: VibeHash, EvoHash, StatLab, Intune kit, Luh Calm, calebluh.com, Luh Labs. 2,140+ IT tickets closed." /></a> <img src="./assets/hud/sidebar.svg" width="33%" alt="Certifications: Network+, Security+, SecAI+" />
+<a href="https://github.com/calebluh?tab=repositories"><img src="./assets/hud/showcase.svg" width="66%" alt="Project showcase: VibeHash, EvoHash, StatLab, Intune kit, Luh Calm, calebluh.com, Luh Labs. 2,140+ IT tickets closed." /></a> <a href="https://www.credly.com/users/caleb-luh.2a05c6ae/badges"><img src="./assets/hud/sidebar.svg" width="33%" alt="Verified on Credly: CompTIA Network+, Security+, SecAI+" /></a>
 
 <img src="./assets/hud/activity.svg" width="100%" alt="Recent activity and the Earth to Mars commit run" />
 
