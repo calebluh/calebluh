@@ -1,17 +1,35 @@
 name: Crafting Table Game Engine
 on:
   issues:
-    types: [opened, edited]
+    types: [opened]
 
 jobs:
   craft:
+    # Only game issues; everything else is left alone.
+    if: startsWith(github.event.issue.title, 'CRAFT:') || startsWith(github.event.issue.title, 'COMMENT:')
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
     steps:
       - uses: actions/checkout@v4
-      - name: Process Crafting Recipe
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install Pillow
+      - name: Run Crafting Engine
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE_TITLE: ${{ github.event.issue.title }}
           ISSUE_USER: ${{ github.event.issue.user.login }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        run: python scripts/crafting_engine.py
+      - name: Commit Updated Grid & README
         run: |
-          echo "Processing craft command from @$ISSUE_USER: $ISSUE_TITLE"
-          # Here you can add python logic to parse recipes and comment or update profile state!
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add assets/crafting_state.json assets/guestbook.json assets/hud/ README.md
+          git diff --staged --quiet && exit 0
+          git commit -m "game: update crafting table state"
+          git pull --rebase
+          git push
