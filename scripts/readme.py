@@ -16,7 +16,7 @@ import urllib.error
 import urllib.request
 from xml.sax.saxutils import escape
 
-from PIL import Image
+from PIL import Image, ImageSequence
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 USERNAME = "calebluh"
@@ -74,7 +74,7 @@ def badge(path, x, y, size):
     """Embed an official badge PNG at 2x for crisp edges."""
     im = Image.open(p(path)).convert("RGBA").resize((size * 2, size * 2), Image.LANCZOS)
     href = data_uri(im, "PNG")
-    return f'<image x="{x}" y="{y}" width="{size}" height="{size}" href="{href}" xlink:href="{href}"/>'
+    return f'<image x="{x}" y="{y}" width="{size}" height="{size}" href="{href}"/>'
 
 # Showcase tiles: (label, caption, border, fill, text)
 SHOWCASE = [
@@ -246,7 +246,7 @@ def panel(key, body, dim=0.78, extra_defs=""):
         f'<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" '
         f'width="{w}" height="{h}" viewBox="0 0 {w} {h}">'
         f"<defs>{extra_defs}</defs>"
-        f'<image width="{w}" height="{h}" preserveAspectRatio="none" href="{href}" xlink:href="{href}"/>'
+        f'<image width="{w}" height="{h}" preserveAspectRatio="none" href="{href}"/>'
         f'<rect width="{w}" height="{h}" fill="#000" opacity="{dim}"/>'
         f"{body}</svg>\n"
     )
@@ -309,8 +309,8 @@ def render_header(stats, tickets):
     body = (
         f'<rect x="{ax - 3}" y="{ay - 3}" width="{aw + 6}" height="{aw + 6}" fill="#E5E7EB"/>'
         f'<g clip-path="url(#av)">'
-        f'<image x="{ax}" y="{ay}" width="{aw}" height="{aw}" href="{face_a}" xlink:href="{face_a}"/>'
-        f'<image x="{ax}" y="{ay}" width="{aw}" height="{aw}" href="{face_b}" xlink:href="{face_b}" mask="url(#wipe)"/>'
+        f'<image x="{ax}" y="{ay}" width="{aw}" height="{aw}" href="{face_a}"/>'
+        f'<image x="{ax}" y="{ay}" width="{aw}" height="{aw}" href="{face_b}" mask="url(#wipe)"/>'
         f'<g><animateTransform attributeName="transform" type="translate" values="{line_dx}" {timing}/>'
         f'<line x1="{mid}" y1="{ay}" x2="{mid}" y2="{ay + aw}" stroke="#FFFFFF" stroke-width="8" opacity=".12"/>'
         f'<line x1="{mid}" y1="{ay}" x2="{mid}" y2="{ay + aw}" stroke="#FFFFFF" stroke-width="1.25" opacity=".7"/></g>'
@@ -420,29 +420,33 @@ def render_activity(stats):
     write("activity.svg", panel("activity", body, dim=0.8))
 
 
-def render_portal(key, title, url, status, frame_dark, frame_mid, swirl_a, swirl_b, accent):
-    bs, cols, rows = 18, 4, 6
-    ox, oy = 18, (150 - rows * bs) // 2
-    cells = []
-    for r in range(rows):
-        for c in range(cols):
-            x, y = ox + c * bs, oy + r * bs
-            if r in (0, rows - 1) or c in (0, cols - 1):
-                cells.append(
-                    f'<rect x="{x}" y="{y}" width="{bs}" height="{bs}" fill="{frame_dark}"/>'
-                    f'<rect x="{x + 3}" y="{y + 3}" width="{bs - 6}" height="{bs - 6}" fill="{frame_mid}"/>'
-                )
-            else:
-                dur = 1.6 + ((r + c) % 3) * 0.45
-                cells.append(
-                    f'<rect x="{x}" y="{y}" width="{bs}" height="{bs}" fill="{swirl_a}">'
-                    f'<animate attributeName="fill" values="{swirl_a};{swirl_b};{swirl_a}" dur="{dur}s" repeatCount="indefinite"/></rect>'
-                )
+def small_gif(path, size, step=3, colors=32):
+    """Shrink an animated GIF for embedding: every `step`-th frame, fewer colors."""
+    src = Image.open(p(path))
+    frames, durations, palette = [], [], None
+    for i, f in enumerate(ImageSequence.Iterator(src)):
+        if i % step:
+            durations[-1] += f.info.get("duration", 50) if durations else 0
+            continue
+        small = f.convert("RGB").resize(size, Image.NEAREST)
+        if palette is None:  # one shared palette lets the encoder reuse unchanged pixels
+            palette = small.quantize(colors, method=Image.Quantize.MEDIANCUT)
+        frames.append(small.quantize(palette=palette, dither=Image.Dither.NONE))
+        durations.append(f.info.get("duration", 50))
+    buf = io.BytesIO()
+    frames[0].save(buf, "GIF", save_all=True, append_images=frames[1:], duration=durations, loop=0, optimize=True)
+    return "data:image/gif;base64," + base64.b64encode(buf.getvalue()).decode()
+
+
+def render_portal(key, title, url, status, gif, accent):
+    w, h = 98, 122  # matches the GIF's 4:5 aspect
+    href = small_gif(gif, (round(w * 1.5), round(h * 1.5)))
+    tx = 132
     body = (
-        "".join(cells)
-        + t(112, 58, "PORTAL · ENTER", 11, accent, weight="700", font=MONO, extra='letter-spacing="1.5"')
-        + t(112, 86, title, 22, "#FFFFFF", weight="600")
-        + t(112, 110, f"{url} · {status}", 13, "#57CBDE")
+        f'<image x="16" y="14" width="{w}" height="{h}" href="{href}" style="image-rendering:pixelated"/>'
+        + t(tx, 58, "PORTAL · ENTER", 11, accent, weight="700", font=MONO, extra='letter-spacing="1.5"')
+        + t(tx, 86, title, 22, "#FFFFFF", weight="600")
+        + t(tx, 110, f"{url} · {status}", 13, "#57CBDE")
         + f'<circle cx="388" cy="75" r="17" fill="none" stroke="{accent}" stroke-width="2"/>'
         + t(388, 80, "↗", 14, "#FFFFFF", "middle")
     )
@@ -506,7 +510,7 @@ def item_icon(key, x, y, size):
     if "file" in spec:
         im = Image.open(p(spec["file"])).convert("RGBA").resize((64, 64), Image.LANCZOS)
         href = data_uri(im, "PNG")
-        return f'<image x="{x}" y="{y}" width="{size}" height="{size}" href="{href}" xlink:href="{href}"/>'
+        return f'<image x="{x}" y="{y}" width="{size}" height="{size}" href="{href}"/>'
     hi, lo = spec["color"]
     u = size / 8
     if key == "string":
@@ -622,9 +626,9 @@ def main():
     render_sidebar(stats)
     render_activity(stats)
     render_portal("portal-vibehash", "VibeHash", "vibehash.org", "Online",
-                  "#0A0710", "#1E1030", "#7E22CE", "#C084FC", "#C084FC")
-    render_portal("portal-luhlabs", "Luh Labs LLC", "luhlabs.com", "In development",
-                  "#8A6A12", "#EAB308", "#1D4ED8", "#60A5FA", "#38BDF8")
+                  "assets/nether-portal.gif", "#C084FC")
+    aether = "assets/aether-portal.gif" if os.path.exists(p("assets/aether-portal.gif")) else "assets/nether-portal.gif"
+    render_portal("portal-luhlabs", "Luh Labs LLC", "luhlabs.com", "In development", aether, "#FACC15")
     render_guestbook()
     write_cell_svgs()
     render_crafting_panel()
