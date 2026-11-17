@@ -288,23 +288,34 @@ def render_header(stats, tickets):
     level, xp = level_for(stats)
     (face_a, face_b), (ax, ay, aw) = avatar_layers()
     mid = ax + aw / 2
-    # landonorris-style split: the divider sweeps across and reveals the helmet side
-    wipe = f"{mid};{ax + aw * 0.22};{ax + aw * 0.22};{ax + aw * 0.78};{ax + aw * 0.78};{mid}"
-    kt = "0;0.2;0.42;0.62;0.84;1"
+    # landonorris-style split: an eased, soft-edged divider glides between the two faces
+    feather = 14  # px of blend on each side of the divider
+    stops = [mid, ax + aw * 0.2, ax + aw * 0.2, ax + aw * 0.8, ax + aw * 0.8, mid]
+    timing = (
+        'keyTimes="0;0.2;0.38;0.62;0.8;1" calcMode="spline" '
+        'keySplines="0.65 0 0.35 1;0 0 1 1;0.65 0 0.35 1;0 0 1 1;0.65 0 0.35 1" '
+        'dur="10s" repeatCount="indefinite"'
+    )
+    mask_x = ";".join(f"{s - feather:.1f}" for s in stops)
+    line_dx = ";".join(f"{s - mid:.1f},0" for s in stops)
+    edge = feather * 2 / (aw + feather * 2)
     defs = (
         f'<clipPath id="av"><rect x="{ax}" y="{ay}" width="{aw}" height="{aw}"/></clipPath>'
-        f'<clipPath id="wipe"><rect x="{mid}" y="{ay}" width="{aw}" height="{aw}">'
-        f'<animate attributeName="x" values="{wipe}" keyTimes="{kt}" dur="9s" repeatCount="indefinite"/></rect></clipPath>'
+        f'<linearGradient id="feather" x1="0" x2="1" y1="0" y2="0">'
+        f'<stop offset="0" stop-color="#000"/><stop offset="{edge:.3f}" stop-color="#FFF"/></linearGradient>'
+        f'<mask id="wipe" maskUnits="userSpaceOnUse" x="{ax}" y="{ay}" width="{aw}" height="{aw}">'
+        f'<rect x="{mid - feather}" y="{ay}" width="{aw + feather * 2}" height="{aw}" fill="url(#feather)">'
+        f'<animate attributeName="x" values="{mask_x}" {timing}/></rect></mask>'
     )
     fc = PROFILE["featured_cert"]
     body = (
         f'<rect x="{ax - 3}" y="{ay - 3}" width="{aw + 6}" height="{aw + 6}" fill="#E5E7EB"/>'
         f'<g clip-path="url(#av)">'
         f'<image x="{ax}" y="{ay}" width="{aw}" height="{aw}" href="{face_a}" xlink:href="{face_a}"/>'
-        f'<image x="{ax}" y="{ay}" width="{aw}" height="{aw}" href="{face_b}" xlink:href="{face_b}" clip-path="url(#wipe)"/>'
-        f'<line x1="{mid}" y1="{ay}" x2="{mid}" y2="{ay + aw}" stroke="#FFFFFF" stroke-width="2" opacity=".9">'
-        f'<animate attributeName="x1" values="{wipe}" keyTimes="{kt}" dur="9s" repeatCount="indefinite"/>'
-        f'<animate attributeName="x2" values="{wipe}" keyTimes="{kt}" dur="9s" repeatCount="indefinite"/></line>'
+        f'<image x="{ax}" y="{ay}" width="{aw}" height="{aw}" href="{face_b}" xlink:href="{face_b}" mask="url(#wipe)"/>'
+        f'<g><animateTransform attributeName="transform" type="translate" values="{line_dx}" {timing}/>'
+        f'<line x1="{mid}" y1="{ay}" x2="{mid}" y2="{ay + aw}" stroke="#FFFFFF" stroke-width="8" opacity=".12"/>'
+        f'<line x1="{mid}" y1="{ay}" x2="{mid}" y2="{ay + aw}" stroke="#FFFFFF" stroke-width="1.25" opacity=".7"/></g>'
         f"</g>"
         + t(218, 70, PROFILE["name"], 34)
         + t(220, 100, PROFILE["tagline"], 15, "#D6DEE4")
